@@ -19,10 +19,12 @@ char checksum_digit(char* card_number) {
 }
 
 int main(int argc, char** argv) {
-    int count;
-    if (argc != 3 || (sscanf(argv[2], "%u", &count) != 1)) {
-        printf("ccgen <BIN> <count>\n");
+    int count = 10;
+    if ((argc != 2 && argc != 3)
+        || (argc == 3 && sscanf(argv[2], "%u", &count) != 1))) {
+        printf("ccgen <BIN> [count]\n");
         return 1;
+    }
     } else if (count == 0) {
         return 0;
     }
